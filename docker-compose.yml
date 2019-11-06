@@ -3,9 +3,9 @@ services:
     www:
         build: php/.
         ports: 
-            - "8001:80"
+            - "8002:80"
         volumes:
-            - './src:/var/www/html/'
+            - 'C:\Users\ingjr\Proyectos\php\cemitcriket\src:/var/www/html/'
         links:
             - db
         networks:
@@ -13,7 +13,7 @@ services:
     scrap:
         image: python
         volumes:
-            - '.\src2:/root'
+            - 'C:\Users\ingjr\Proyectos\php\cemitcriket\src2:/root'
         links:
             - db
         networks:
@@ -22,7 +22,7 @@ services:
     db:
         image: mysql
         ports: 
-            - "3306:3306"
+            - "3307:3306"
         environment:
             MYSQL_DATABASE: analizerdb
             MYSQL_USER: user
@@ -37,7 +37,7 @@ services:
         links: 
             - db:db
         ports:
-            - 8000:80
+            - 8003:80
         environment:
             MYSQL_USER: user
             MYSQL_PASSWORD: test
